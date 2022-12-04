@@ -1,0 +1,44 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <form method="post">
+        <label for="fname">ID</label><br>
+        <input type="text" id="id" name="id" placeholder="Enter ID"><br><br><br>
+        <label for="fname">Enter Your Password</label><br>
+        <input type="password" id="password" name="password" placeholder="Type here"><br>
+
+        <input class="remove_button" type="submit" value="Remove">
+    </form>
+
+    <br><br><br>
+    <a href="/save">
+        <button class="save_button" type="button" >Save Data Page</button>
+    </a>
+
+    <table style="width:100%">
+        <tr>
+           <th>ID</th><th>Name</th><th>Amount</th><th>Date</th><th>For What?</th>
+        </tr>
+
+        <% debtor.forEach(function(u){ %>
+            <tr>
+                <td>
+                    <%= u.id %>
+                </td>
+                <td>
+                    <%= u.name %>
+                </td>
+                <td>
+                    <%= u.amount %>
+                </td>
+                <td>
+                    <%= u.date %>
+                </td>
+                <td>
+                    <%= u.what %>
+                </td>
+            </tr>
+        <% }); %>
+        
+     </table>
+</body>
+<%- include("../partials/footer.ejs") %>
